@@ -9,8 +9,12 @@ public class User {
         medicalRecords = new ArrayList<>();
     }
 
-    public ArrayList<Record> getMedicalRecords() {
+    public ArrayList<Record> getAllMedicalRecords() {
         return medicalRecords;
+    }
+
+    public Record getMedicalRecord(int index) {
+        return medicalRecords.get(index);
     }
 
     public void setMedicalRecords(Record record) {
