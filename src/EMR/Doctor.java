@@ -5,13 +5,14 @@ public class Doctor {
     private String firstName;
     private String lastName;
     private String specialty;
-    private String hospitalName;
 
-    public Doctor(String firstName, String lastName, String specialty, Hospital hospital) {
+    private Hospital hospital;
+
+    public Doctor(String firstName, String lastName, String specialty) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.specialty = specialty;
-        hospitalName = hospital.getHospitalName();
+        hospital = new Hospital();
     }
 
     public String getFirstName() {
@@ -30,12 +31,10 @@ public class Doctor {
         this.lastName = lastName;
     }
 
+
+
     public String getSpecialty() {
         return specialty;
-    }
-
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
     }
 
     @Override
@@ -46,6 +45,6 @@ public class Doctor {
                 ID No.: %d
                 Name: Dr. %s %s
                 Specialization: %s
-                """, hospitalName, staffId, firstName, lastName, specialty);
+                """, hospital.getHospitalName(), staffId, firstName, lastName, specialty);
     }
 }

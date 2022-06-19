@@ -3,6 +3,7 @@ package EMR;
 import java.util.ArrayList;
 
 public class Record {
+    private int recordId;
     private Doctor attendingDoctor;
     private Hospital hospitalUsed;
     private ArrayList<Test> medicalTests;
@@ -11,6 +12,14 @@ public class Record {
         attendingDoctor = doctor;
         hospitalUsed = hospital;
         medicalTests = new ArrayList<>();
+    }
+
+    public int getRecordId() {
+        return recordId;
+    }
+
+    public void setRecordId(int recordId) {
+        this.recordId = recordId;
     }
 
     public Doctor getAttendingDoctor() {
@@ -41,5 +50,35 @@ public class Record {
 
     public void deleteTest(Test test) {
         medicalTests.remove(test);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                
+                File No.: %d
+                ----------------
+                    Hospital
+                ----------------
+                %s
+                ----------------
+                Attending Doctor
+                ----------------
+                %s
+                
+                No. of tests: %d
+                """, recordId, hospitalUsed, attendingDoctor, medicalTests.size());
+    }
+
+    public void changeHospital(Hospital hospital) {
+        hospitalUsed = hospital;
+    }
+
+    public void changeDoctor(Doctor doctor) {
+        attendingDoctor = doctor;
+    }
+
+    public int numOfTestsDone() {
+        return medicalTests.size();
     }
 }

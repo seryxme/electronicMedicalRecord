@@ -9,6 +9,10 @@ public class Hospital {
     ArrayList<Doctor> doctors;
     ArrayList<Test> tests;
 
+    public Hospital() {
+
+    }
+
     public Hospital(String name, String location) {
         hospitalName = name;
         this.location = location;
